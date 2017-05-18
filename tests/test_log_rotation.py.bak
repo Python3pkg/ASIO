@@ -30,7 +30,7 @@ class TestApplication(object):
 
         self.writing = False
 
-        print('Base Path: "%s"' % self.base_path)
+        print 'Base Path: "%s"' % self.base_path
 
     def random_write(self, path, prefix, seconds, count=250):
         start_time = time.time()
@@ -39,7 +39,7 @@ class TestApplication(object):
         num = 1
         while time.time() - start_time < seconds and num <= count:
             line = '%s:%s\n' % (prefix, randint(10000, 99999))
-            print('write %r' % line.strip())
+            print 'write %r' % line.strip()
 
             fp.write(line)
             fp.flush()
@@ -57,7 +57,7 @@ class TestApplication(object):
         while not self.writing:
             time.sleep(1)
 
-        print("Read starting...")
+        print "Read starting..."
 
         f = ASIO.open(file_path, opener=False)
         s = BufferedReader(f)
@@ -67,7 +67,7 @@ class TestApplication(object):
 
         while True:
             if f is None:
-                print('Opening file...')
+                print 'Opening file...'
                 f = ASIO.open(file_path, opener=False)
                 s = BufferedReader(f)
 
@@ -94,9 +94,9 @@ class TestApplication(object):
                     time.sleep(0.1)
                     continue
 
-            print('read %r' % (line,))
+            print 'read %r' % (line,)
 
-        print('finished')
+        print 'finished'
         s.close()
         f.close()
 
